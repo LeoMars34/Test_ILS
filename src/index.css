@@ -1,13 +1,50 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.leaflet-container {
+    height: 90vh;
+    width: 90%;
+    border-radius: 2rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.table {
+    min-width: 250px;
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin: 20px;
+}
+.table thead {
+    background: var(--dark);
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid black;
+}
+.table thead tr th {
+    font-size: 14px;
+    font-weight: medium;
+    letter-spacing: 0.45px;
+    padding: 12px;
+    border: 2px solid black;
+    white-space: nowrap;
+}
+
+.table tbody tr td {
+    cursor: pointer;
+    font-size: 14px;
+    letter-spacing: 0.45px;
+    font-weight: normal;
+    padding: 8px;
+    text-align: center;
+    border: 2px solid black;
+}
+.clickTr {
+    box-shadow: 0 0 5px blue;
 }
