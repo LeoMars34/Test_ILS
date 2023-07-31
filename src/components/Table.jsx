@@ -1,4 +1,4 @@
-function Table({ setPolyline }) {
+function Table({ setPolyline, setWaypoints }) {
     async function getPolyline(coordinat) {
         let response = await fetch(
             `http://router.project-osrm.org/route/v1/driving/${coordinat}?overview=false`
@@ -11,14 +11,21 @@ function Table({ setPolyline }) {
             document.querySelector(".clickTr").classList.remove("clickTr");
         }
         e.target.classList.add("clickTr");
+        setWaypoints([]);
         getPolyline(coord).then((response) => {
             setPolyline(response);
+
+            let arrWaypoints = [];
+            response.waypoints.map((i) => {
+                arrWaypoints.push(i.location);
+            });
+            setWaypoints(arrWaypoints);
         });
     }
     let routes = {
         1: "59.84660399,30.29496392;59.82934196,30.42423701;59.83567701,30.38064206",
         2: "59.82934196,30.42423701;59.82761295,30.41705607;59.84660399,30.29496392",
-        3: "59.83567701,30.38064206;59.84660399,30.29496392;59.82761295, 30.41705607",
+        3: "59.83567701,30.38064206;59.84660399,30.29496392;59.82761295,30.41705607",
     };
     return (
         <div>
